@@ -2,11 +2,11 @@ fn main() {
     println!("Hello, world!");
     let r1:Rect = Rect { l: 12.45, b: 13.45 };
 
-    print_area_perimeter(r1);
+    print_area_perimeter(&r1);
     
     let s1:Square = Square(15.14);
 
-    print_area_perimeter(s1);
+    print_area_perimeter(&s1);
 
 }
 
@@ -41,7 +41,13 @@ impl IShape for Square{
     }
 }
 
-fn print_area_perimeter<T:IShape>(t:T){
+// fn print_area_perimeter<T:IShape>(t:T){
+//     println!("Area:{:?}",t.area());
+//     println!("Perimeter:{:?}",t.perimeter());
+// }
+
+
+fn print_area_perimeter(t:&impl IShape){
     println!("Area:{:?}",t.area());
     println!("Perimeter:{:?}",t.perimeter());
 }
